@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+  app: 
+    image: guraiah93/app:12
+    ports: 
+       - 80:80
+  db:
+
+    image: guraiah93/db:12
+
+    volumes:
+
+      - "./.mysql-data/db:/var/lib/mysql"
+
+    restart: always
+
+    ports:
+
+      - 3306:3306
+
+    environment:
+
+      MYSQL_ROOT_PASSWORD: rootpw
+
+      MYSQL_DATABASE: db_contact
+
+      MYSQL_USER: guraiah
+
+      MYSQL_PASSWORD: Password321
+
